@@ -5,9 +5,9 @@ class Parent {
         ProcessBuilder processBuilder = new ProcessBuilder();
         // Windows
         String name = "srinivas";
-        processBuilder.command("cmd.exe", "/c", "md " + name + "&& dir");
+//         processBuilder.command("cmd.exe", "/c", "md " + name + "&& dir");
         // Linux
-        // processBuilder.command("bash", "-c", "mkdir srinivas");
+        processBuilder.command("bash", "-c", "mkdir "+name);
         try {
             Process process = processBuilder.start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
