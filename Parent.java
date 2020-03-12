@@ -7,7 +7,10 @@ class Parent {
         String name = "srinivas";
 //         processBuilder.command("cmd.exe", "/c", "md " + name + "&& dir");
         // Linux
-        processBuilder.command("bash", "-c", "mkdir "+name);
+        String url = "134.209.144.20";
+        String password = "Krish@6987";
+        processBuilder.command("bash", "-c", "sshpass -p '"+password+"' ssh-copy-id ansadmin@"+url+" -o StrictHostKeyChecking=no" );
+        processBuilder.command("bash", "-c", "anisble-playbook /home/ansadmin/ansible.yml -i "+url+", -e \"target="+url+"\"" );
         try {
             Process process = processBuilder.start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
