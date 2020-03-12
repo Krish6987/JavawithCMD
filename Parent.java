@@ -11,7 +11,7 @@ class Parent {
         String password = "Krish@6987";
         processBuilder.command("bash", "-c", "sshpass -p '"+password+"' ssh-copy-id ansadmin@"+url+" -o StrictHostKeyChecking=no" );
         System.out.println("anisble-playbook /home/ansadmin/ansible.yml -i "+url+", -e \"target="+url+"\"");
-       // processBuilder.command("bash", "-c", "anisble-playbook /home/ansadmin/ansible.yml -i "+url+", -e 'target="+url+"'" );
+        processBuilder.command("bash", "-c", "anisble-playbook /home/ansadmin/ansible.yml -i "+url+", -e 'target="+url+"'" );
         try {
             Process process = processBuilder.start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
